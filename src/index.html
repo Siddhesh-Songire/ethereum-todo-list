@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
     <!-- Or: -->
     <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.js"></script>
-    <title>Dapp University | Todo List</title>
+    <title>Blockchain Project | Todo List</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -43,15 +43,41 @@
         color: grey;
         text-decoration: line-through;
       }
+
+      #content {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #taskList li {
+        margin-bottom: 10px;
+      }
+
+      #taskList li label {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+      }
+
+      #taskList li label input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      #completedTaskList li {
+        margin-bottom: 10px;
+        text-decoration: line-through;
+        color: #6c757d;
+      }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a
-        class="navbar-brand col-sm-3 col-md-2 mr-0"
-        href="http://www.dappuniversity.com/free-download"
-        target="_blank"
-        >Dapp University | Todo List</a
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="" target="_blank"
+        >Blockchain Project | Todo List</a
       >
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
@@ -61,7 +87,7 @@
         </li>
       </ul>
     </nav>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row">
         <main role="main" class="col-lg-12 d-flex justify-content-center">
           <div id="loader" class="text-center">
@@ -90,7 +116,51 @@
           </div>
         </main>
       </div>
+    </div> -->
+
+    <div class="container-fluid">
+      <div class="row my-5">
+        <main role="main" class="col-lg-12 d-flex justify-content-center">
+          <div id="loader" class="text-center">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content">
+            <form onSubmit="App.createTask(); return false;" class="mb-3">
+              <div class="input-group">
+                <input
+                  id="newTask"
+                  type="text"
+                  class="form-control"
+                  placeholder="Add task..."
+                  required
+                />
+                <button type="submit" class="mx-2 btn btn-primary">Add</button>
+              </div>
+            </form>
+            <ul id="taskList" class="list-unstyled">
+              <div class="taskTemplate" class="checkbox" style="display: none">
+                <li>
+                  <label>
+                    <input type="checkbox" />
+                    <span class="content">Task content goes here...</span>
+                  </label>
+                </li>
+              </div>
+            </ul>
+            <ul id="completedTaskList" class="list-unstyled"></ul>
+          </div>
+        </main>
+      </div>
     </div>
+
+    <footer
+      class="footer mt-auto py-3 bg-body-tertiary bg-dark text-light fixed-bottom"
+    >
+      <div class="container d-flex justify-content-between">
+        <span class="text-body-secondary">Created By GROUP-12 </span>
+        <span class="">PS - Please give us marks😭</span>
+      </div>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
